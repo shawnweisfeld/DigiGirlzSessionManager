@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to DigiGirlz</h1>
+    <img src="/img/DigiGirlz.png" alt="DigiGirlz Logo" />
+    <br />
+    <br />
+    <h2>You will be redirected automatically to <br /> @Model.RoomName in <span id="timeLeft">10</span> second(s).</h2>
+    <h3>If you are not automatically redirected <a href="@Model.RedirectURL">click here</a>.</h3>
+</div> 
+
+
+@section Scripts
+{
+    <script>
+        var timeleft = 10;
+        var downloadTimer = setInterval(function(){
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+                location.href = "@Model.RedirectURL";
+            }
+            document.getElementById("timeLeft").innerHTML = timeleft;
+            timeleft -= 1;
+        }, 1000);
+    </script>
+    
+}

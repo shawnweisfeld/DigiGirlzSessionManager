@@ -1,0 +1,12 @@
+﻿@page
+@model DigiGirlzSessionManager.Pages.AdminModel
+@{
+}
+
+    <ul>
+        @foreach (var room in Model.Rooms)
+        {
+            <li>@room.RoomName - <a href="@room.RoomUrl" target="_blank">@room.RoomUrl</a> (@room.Count)</li>
+        }
+ 
+    </ul>
